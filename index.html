@@ -34,6 +34,8 @@
             // Tworzenie URL z parametrami
             const url = `id.html?name=${encodeURIComponent(userName)}&surname=${encodeURIComponent(userSurname)}&pesel=${encodeURIComponent(userPesel)}&dob=${encodeURIComponent(userDob)}`;
             
+            console.log("Przekierowanie na URL:", url); // Debugowanie
+
             // Przekierowanie do id.html z danymi
             window.location.href = url;
         }
