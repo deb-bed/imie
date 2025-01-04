@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Danych</title>
+</head>
+<body>
+    <h1>Generator Danych</h1>
+    <form id="dataForm">
+        <label for="userName">Imię:</label>
+        <input type="text" id="userName" name="userName" required><br><br>
+        
+        <label for="userSurname">Nazwisko:</label>
+        <input type="text" id="userSurname" name="userSurname" required><br><br>
+        
+        <label for="userCitizenship">Obywatelstwo:</label>
+        <input type="text" id="userCitizenship" name="userCitizenship" required><br><br>
+        
+        <label for="userDob">Data urodzenia:</label>
+        <input type="date" id="userDob" name="userDob" required><br><br>
+        
+        <label for="userPesel">Numer PESEL:</label>
+        <input type="text" id="userPesel" name="userPesel" required><br><br>
+
+        <button type="button" onclick="generateData()">Generuj</button>
+    </form>
+
+    <script>
+        function generateData() {
+            // Pobieranie wartości z formularza
+            const userName = document.getElementById('userName').value;
+            const userSurname = document.getElementById('userSurname').value;
+            const userCitizenship = document.getElementById('userCitizenship').value;
+            const userDob = document.getElementById('userDob').value;
+            const userPesel = document.getElementById('userPesel').value;
+
+            // Tworzenie URL z parametrami
+            const url = `id.html?name=${encodeURIComponent(userName)}&surname=${encodeURIComponent(userSurname)}&citizenship=${encodeURIComponent(userCitizenship)}&dob=${encodeURIComponent(userDob)}&pesel=${encodeURIComponent(userPesel)}`;
+            
+            // Przekierowanie do id.html z danymi
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
