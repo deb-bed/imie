@@ -190,41 +190,35 @@
             <p>Rzeczpospolita<br>Polska</p>
         </div>
     </section>
-<section id="praw">
-        <p id="userName">brak</p>
-        <p class="sub">Imię (Imiona)</p><br>
-        
-        <p id="userSurname">brak</p>
-        <p class="sub">Nazwisko</p><br>
-        
-        <p>POLSKIE</p>
-        <p class="sub">Obywatelstwo</p><br>
-        
-        <p>26-02-2006</p>
-        <p class="sub">Data urodzenia</p><br>
-        
-        <p id="userPesel">brak</p>
-        <p class="sub">Numer PESEL</p><br>
-    </section>
-
-    <script>
+ <script>
         // Funkcja do pobierania parametrów URL
         function getQueryParams() {
             const params = new URLSearchParams(window.location.search);
             return {
                 name: params.get('name'),
                 surname: params.get('surname'),
-                pesel: params.get('pesel')
+                pesel: params.get('pesel'),
+                dob: params.get('dob')
             };
+        }
+
+        // Funkcja do formatowania daty
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Miesiące są liczone od 0
+            const year = date.getFullYear();
+            return `${day}.${month}.${year}`;
         }
 
         // Funkcja do wyświetlania danych w HTML
         function displayData() {
-            const { name, surname, pesel } = getQueryParams();
+            const { name, surname, pesel, dob } = getQueryParams();
             
             document.getElementById('userName').textContent = name || 'brak';
             document.getElementById('userSurname').textContent = surname || 'brak';
             document.getElementById('userPesel').textContent = pesel || 'brak';
+            document.getElementById('userDob').textContent = dob ? formatDate(dob) : 'brak';
         }
 
         // Wywołanie funkcji po załadowaniu strony
