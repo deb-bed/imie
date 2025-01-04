@@ -17,6 +17,9 @@
         <label for="userPesel">Numer PESEL:</label>
         <input type="text" id="userPesel" name="userPesel" required><br><br>
 
+        <label for="userDob">Data urodzenia:</label>
+        <input type="date" id="userDob" name="userDob" value="2006-02-26" required><br><br>
+
         <button type="button" onclick="generateData()">Generuj</button>
     </form>
 
@@ -26,9 +29,10 @@
             const userName = document.getElementById('userName').value;
             const userSurname = document.getElementById('userSurname').value;
             const userPesel = document.getElementById('userPesel').value;
-            
+            const userDob = document.getElementById('userDob').value;
+
             // Tworzenie URL z parametrami
-            const url = `id.html?name=${encodeURIComponent(userName)}&surname=${encodeURIComponent(userSurname)}&pesel=${encodeURIComponent(userPesel)}`;
+            const url = `id.html?name=${encodeURIComponent(userName)}&surname=${encodeURIComponent(userSurname)}&pesel=${encodeURIComponent(userPesel)}&dob=${encodeURIComponent(userDob)}`;
             
             // Przekierowanie do id.html z danymi
             window.location.href = url;
