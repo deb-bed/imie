@@ -191,19 +191,19 @@
         </div>
     </section>
 <section id="praw">
-        <p id="userName">< span id="displayName"></span></p>
+        <p id="userName">brak</p>
         <p class="sub">Imię (Imiona)</p><br>
         
-        <p id="userSurname"> <span id="displaySurname"></span></p>
+        <p id="userSurname">brak</p>
         <p class="sub">Nazwisko</p><br>
         
-        <p id="userCitizenship"> <span id="displayCitizenship"></span></p>
+        <p>POLSKIE</p>
         <p class="sub">Obywatelstwo</p><br>
         
-        <p id="userDob"> <span id="displayDob"></span></p>
+        <p>26-02-2006</p>
         <p class="sub">Data urodzenia</p><br>
         
-        <p id="userPesel"> <span id="displayPesel"></span></p>
+        <p id="userPesel">brak</p>
         <p class="sub">Numer PESEL</p><br>
     </section>
 
@@ -214,21 +214,17 @@
             return {
                 name: params.get('name'),
                 surname: params.get('surname'),
-                citizenship: params.get('citizenship'),
-                dob: params.get('dob'),
                 pesel: params.get('pesel')
             };
         }
 
         // Funkcja do wyświetlania danych w HTML
         function displayData() {
-            const { name, surname, citizenship, dob, pesel } = getQueryParams();
+            const { name, surname, pesel } = getQueryParams();
             
-            document.getElementById('displayName').textContent = name || 'brak';
-            document.getElementById('displaySurname').textContent = surname || 'brak';
-            document.getElementById('displayCitizenship').textContent = citizenship || 'brak';
-            document.getElementById('displayDob').textContent = dob || 'brak';
-            document.getElementById('displayPesel').textContent = pesel || 'brak';
+            document.getElementById('userName').textContent = name || 'brak';
+            document.getElementById('userSurname').textContent = surname || 'brak';
+            document.getElementById('userPesel').textContent = pesel || 'brak';
         }
 
         // Wywołanie funkcji po załadowaniu strony
