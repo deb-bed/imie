@@ -190,7 +190,7 @@
             <p>Rzeczpospolita<br>Polska</p>
         </div>
     </section>
- <script>
+  <script>
         // Funkcja do pobierania parametrów URL
         function getQueryParams() {
             const params = new URLSearchParams(window.location.search);
@@ -214,6 +214,9 @@
         // Funkcja do wyświetlania danych w HTML
         function displayData() {
             const { name, surname, pesel, dob } = getQueryParams();
+            
+            // Debugowanie - sprawdzamy, czy dane są poprawnie odczytane
+            console.log("Dane z URL:", { name, surname, pesel, dob });
             
             document.getElementById('userName').textContent = name || 'brak';
             document.getElementById('userSurname').textContent = surname || 'brak';
